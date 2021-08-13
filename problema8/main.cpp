@@ -1,71 +1,29 @@
-//Este programa genera un arreglo aleatorio de letras mayusculas,ademas de eso lo imprme y contabiliza cuantas veces se repite cada letra
-//Oscar David Pulgarin Carrasquilla
+/*Este programa que recibe una cadena de caracteres(numero y/o letras de maximo 20 caracteres) y separa los números del resto de caracteres,
+generando una cadena que no tiene números y otra con los números que había en la cadena original. */
+//
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
-
 using namespace std;
-
-void imprimir(char A[],int C[], int n);
-void imprimir_Arreglo(char A[],int n);
-void contarLetras(char A[], char L[], int C[]);
-
-
 int main()
 {
-    char Aleatorios[200]={};
-    char Letras[26]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-    int CLetras[26];
-
-
-    srand(time(NULL));
-
-    //Para generar
-    for(int i=0;i<200;i++){
-        Aleatorios[i]=Letras[rand()%26];
-    }
-
-    //cuenta las letras
-    contarLetras(Aleatorios,Letras,CLetras);
-
-    //imprimir
-    imprimir_Arreglo(Aleatorios,200);
-    imprimir(Letras,CLetras,26);
-
-
-    return 0;
-}
-
-
-void imprimir(char A[],int c[],int n){
-    int i;
-    for(i=0; i<n; i++){
-        cout<<A[i]<<" : "<<c[i]<<endl;
-    }
-    cout<<endl;
-}
-
-
-void imprimir_Arreglo(char A[], int n){
-    int i;
-    for(i=0; i<n; i++){
-        cout<<A[i];
-    }
-    cout<<endl;
-}
-
-void contarLetras (char A[], char L[], int C[]){
-    int contador;
-    int i,j;
-
-    //Buscar
-    for (i = 0; i < 26; ++i) {
-        contador = 0;
-        for (j = 0; j < 200; ++j) {
-            if(L[i]==A[j]){
-                contador=contador+1;
-            }
+    int i=0,cont=0,j=0,k=0;
+    char CadenaP[20]={};
+    char CadenaNum[20]={};
+    char CadenaLetras[20]={};
+    cout<<"Ingrese una cadena de caracteres(letras y/o  numeros)"<<endl;
+    cin>>CadenaP;
+    while(CadenaP[cont]!='\0')
+            cont++;
+    for (i=0;i<cont;i++){
+        if (CadenaP[i]>=48 and CadenaP[i]<=57){   //aqui el 48 y 57 es por que los numeros estan en ese rango en la tabla ascii
+            CadenaNum[k]=CadenaP[i];
+            k++;
         }
-        C[i]=contador;
+        else{
+            CadenaLetras[j]=CadenaP[i];
+             j++;
+        }
+
     }
+    cout<<"Original: "<<CadenaP<<endl<<"Texto: "<<CadenaLetras<<endl<<"Numero: "<<CadenaNum<<endl;;
+    return 0;
 }

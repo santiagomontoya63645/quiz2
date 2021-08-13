@@ -1,11 +1,13 @@
+//recive hasta un maximo de 12 caracteres
 #include <iostream>
-int cadena_a_enteros(char CaracteresNum[]);
-int potencia(int valor,int potencia);
+
+long long int cadena_a_enteros(char CaracteresNum[]);
+long long int potencia(int valor,int potencia);
 using namespace std;
 
 int main()
 {
-    int n,Numerocadena,suma=0,Exponente,aux;
+    long long int n,Numerocadena,suma=0,Exponente,aux;
     char CadenaNum[20]={};
     cout<<"Ingrese un numero n"<<endl;
     cin>>n;
@@ -25,9 +27,9 @@ int main()
 
     return 0;
 }
-int cadena_a_enteros(char CaracteresNum[])
+long long int cadena_a_enteros(char CaracteresNum[])
 {
-    int valor=0,suma=0,contador=0,paso=0, aux;
+    long long int valor=0,suma=0,contador=0,paso=0, aux;
     while(CaracteresNum[contador]!='\0')  //Pa saber el tamaño de CaracteresNum
         contador+=1;
     for(int n=0;n<contador ;n++)
@@ -42,8 +44,8 @@ int cadena_a_enteros(char CaracteresNum[])
     return suma;
 }
 
-int potencia(int valor,int potencia) {  // esta funcion calcula la potencia
-    int producto=1;
+long long int potencia(int valor,int potencia) {  // esta funcion calcula la potencia
+    long long int producto=1;
     for(int n=0;n<potencia;n+=1)
         producto*=valor;
     return producto;
